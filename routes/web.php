@@ -18,4 +18,6 @@
 // Route::match(['get','post'],'login',"AdminController@ogin");
 
 Route::get('login',"AdminController@getLogin");
-Route::get('register',"AdminController@getRegister");
+
+Route::get('register',"AdminController@getRegister")->name('get-register');
+Route::post('register',"AdminController@postRegister")->name('register');

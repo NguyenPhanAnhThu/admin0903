@@ -6,9 +6,17 @@
     }
 </style>
 <div class="card card-container" style="max-width: 500px;">
+    @if($errors->any())
+        <div class="alert alert-danger">
+            @foreach($errors->all() as $err)
+                <li>{{$err}}</li>
+            @endforeach
+        </div>
+    @endif
     <h2>Admin Register</h2>
     <p id="profile-name" class="profile-name-card"></p>
-    <form class="form-signin" method="post" action="#">
+    <form class="form-signin" method="post" action="{{route('register')}}">
+        @csrf
         <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
 
         <input type="email" name="email" class="form-control" placeholder="Email address" required>
@@ -16,7 +24,7 @@
         <input type="text" name="fullname" class="form-control" placeholder="Họ tên" required >
         <input type="date" name="birthdate" class="form-control" required >
         <select name="gender" class="form-control">
-            <option>====Chọn giới tính====</option>
+            <option>-----Chọn giới tính-----</option>
             <option value="nữ">Nữ</option>
             <option value="nam">Nam</option>
             <option value="khác">Khác</option>
