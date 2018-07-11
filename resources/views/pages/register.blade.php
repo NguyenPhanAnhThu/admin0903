@@ -1,6 +1,11 @@
 @extends('layout.layout')
 @section('content')
-<div class="card card-container">
+<style>
+    .form-signin input[type=date], .form-signin select{
+        margin-bottom: 10px
+    }
+</style>
+<div class="card card-container" style="max-width: 500px;">
     <h2>Admin Register</h2>
     <p id="profile-name" class="profile-name-card"></p>
     <form class="form-signin" method="post" action="#">

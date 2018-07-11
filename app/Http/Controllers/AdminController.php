@@ -9,4 +9,7 @@ class AdminController extends Controller
     function getLogin(){
         return view('pages.login');
     }
+    function getRegister(){
+        return view('pages.register');
+    }
 }
