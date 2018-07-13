@@ -1,6 +1,11 @@
 @extends('layout.layout')
 @section('content')
 <div class="card card-container">
+    @if(Session::has('success'))
+    <div class="alert alert-success">
+        {{Session::get('success')}}
+    </div>
+    @endif
     <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
     <p id="profile-name" class="profile-name-card"></p>
     <form class="form-signin" method="post" action="#">

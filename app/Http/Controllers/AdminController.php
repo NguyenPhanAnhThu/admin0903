@@ -42,6 +42,17 @@ class AdminController extends Controller
         $user->phone = $req->phone;
         $user->password = Hash::make($req->password);
         $user->save();
-        return redirect()->route('login');
+        return redirect()->route('login')->with('success','Đăng kí thành công!');
+    }
+
+    function postLogin(Request $req){
+        $data = [
+            'email' => $req->email,
+            'password' => $req->password
+        ];
+        if(Auth::attempt($data)){
+            return redirect()->route('home');
+        }
+        return redirect()->back()->with('error',' Sai thông tin đăng nhập!');
     }
 }
