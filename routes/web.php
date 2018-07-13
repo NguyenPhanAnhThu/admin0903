@@ -17,10 +17,17 @@
 
 // Route::match(['get','post'],'login',"AdminController@ogin");
 
-Route::get('login',"AdminController@getLogin")->name('login');
-Route::post('login',"AdminController@postLogin")->name('login');
+Route::get('login',"AdminController@getLogin")->name('getlogin');
+Route::post('admin-login',"AdminController@postLogin")->name('login');
 
 Route::get('register',"AdminController@getRegister")->name('get-register');
 Route::post('register',"AdminController@postRegister")->name('register');
 
-Route::get('admin',"AdminController@getHome")->name('home');
+Route::group(['prefix'=>'admin','middleware'=>'checkAdminLogin'],function(){
+
+    // admin
+    Route::get('/',"AdminController@getHome")->name('home');
+
+    // admin/add-product
+    Route::get('add-product',"AdminController@getAddProduct")->name('addProduct');
+});

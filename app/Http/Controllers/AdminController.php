@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Hash;
+use Auth;
 
 class AdminController extends Controller
 {
@@ -54,5 +55,11 @@ class AdminController extends Controller
             return redirect()->route('home');
         }
         return redirect()->back()->with('error',' Sai thông tin đăng nhập!');
+    }
+
+    function getHome(){
+        // $user = Auth::user();
+        // dd($user);
+        return view('pages.home');
     }
 }
