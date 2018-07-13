@@ -43,7 +43,7 @@ class AdminController extends Controller
         $user->phone = $req->phone;
         $user->password = Hash::make($req->password);
         $user->save();
-        return redirect()->route('login')->with('success','Đăng kí thành công!');
+        return redirect()->route('getlogin')->with('success','Đăng kí thành công!');
     }
 
     function postLogin(Request $req){
@@ -55,6 +55,10 @@ class AdminController extends Controller
             return redirect()->route('home');
         }
         return redirect()->back()->with('error',' Sai thông tin đăng nhập!');
+    }
+    function getLogout(){
+        Auth::logout();
+        return redirect()->route('getlogin');
     }
 
     function getHome(){

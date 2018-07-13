@@ -15,7 +15,7 @@
 //     return view('welcome');
 // });
 
-// Route::match(['get','post'],'login',"AdminController@ogin");
+// Route::match(['get','post'],'login',"AdminController@login");
 
 Route::get('login',"AdminController@getLogin")->name('getlogin');
 Route::post('admin-login',"AdminController@postLogin")->name('login');
@@ -24,6 +24,9 @@ Route::get('register',"AdminController@getRegister")->name('get-register');
 Route::post('register',"AdminController@postRegister")->name('register');
 
 Route::group(['prefix'=>'admin','middleware'=>'checkAdminLogin'],function(){
+
+    //admin/logout
+    Route::get('logout',"AdminController@getLogout")->name('logout');
 
     // admin
     Route::get('/',"AdminController@getHome")->name('home');
