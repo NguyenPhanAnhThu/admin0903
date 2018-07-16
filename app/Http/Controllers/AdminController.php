@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Hash;
 use Auth;
+use App\Bills;
 
 class AdminController extends Controller
 {
@@ -64,6 +65,8 @@ class AdminController extends Controller
     function getHome(){
         // $user = Auth::user();
         // dd($user);
-        return view('pages.home');
+        $bills = Bills::with('customer','billDetail','billDetail.product')
+                ->where('status',1)->get();
+        return view('pages.home',compact('bills'));
     }
 }
