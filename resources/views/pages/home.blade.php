@@ -39,7 +39,7 @@
                         <td>{{number_format($b->promt_price)}}</td>
                         <td>{{$b->note}}</td>
                         <td>
-                            <button class="btn btn-primary btn-sm">Đã giao</button>
+                            <button class="btn btn-primary btn-sm updateBill" data-toggle="modal" data-target="#myModal" data-id="{{$b->id}}">Đã giao</button>
                             <button class="btn btn-default btn-sm">Huỷ</button>
                         </td>
                       </tr>
@@ -50,4 +50,32 @@
         </div>
     </section>
 </div>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+        <div class="modal-body">
+            <p>Bạn có chắc chắn chuyển <b id="idBill">DH000</b> sang đã giao?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary">
+                <a href="admin/update-bill" id="addIdBill">OK</a>
+            </button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+        </div>
+    
+    </div>
+</div>
+<script src="admin-master/js/jquery.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.updateBill').click(function(){
+            var idBill = $(this).attr('data-id') //get 
+            $('#addIdBill').attr('href',"admin/update-bill-"+idBill) //set
+        })
+    })
+</script>
 @endsection

@@ -31,6 +31,10 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdminLogin'],function(){
     // admin
     Route::get('/',"AdminController@getHome")->name('home');
 
+    //admin/update-bill-2
+    Route::get('update-bill-{id}',"AdminController@getUpdateBill");
+
+
     // admin/add-product
     Route::get('add-product',"AdminController@getAddProduct")->name('addProduct');
 });

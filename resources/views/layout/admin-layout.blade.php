@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mosaddek">
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-    <link rel="shortcut icon" href="img/favicon.html">
+    <link rel="shortcut icon" href="admin-master/img/favicon.html">
 
     <title>@yield('title')</title>
 
@@ -35,7 +35,7 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body style="font-size:16px; color:#000">
 
   <section id="container" >
       <!--header start-->
@@ -145,7 +145,7 @@
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="photo"><img alt="avatar" src="img/avatar-mini.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="admin-master/img/avatar-mini.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Jonathan Smith</span>
                                     <span class="time">Just now</span>
@@ -157,7 +157,7 @@
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="photo"><img alt="avatar" src="img/avatar-mini2.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="admin-master/img/avatar-mini2.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Jhon Doe</span>
                                     <span class="time">10 mins</span>
@@ -169,7 +169,7 @@
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="photo"><img alt="avatar" src="img/avatar-mini3.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="admin-master/img/avatar-mini3.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Jason Stathum</span>
                                     <span class="time">3 hrs</span>
@@ -181,7 +181,7 @@
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="photo"><img alt="avatar" src="img/avatar-mini4.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="admin-master/img/avatar-mini4.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Jondi Rose</span>
                                     <span class="time">Just now</span>
@@ -262,7 +262,7 @@
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" src="img/avatar1_small.jpg">
+                            <img alt="" src="admin-master/img/avatar1_small.jpg">
                             <span class="username">{{Auth::user()->fullname}}</span>
                             <b class="caret"></b>
                         </a>
