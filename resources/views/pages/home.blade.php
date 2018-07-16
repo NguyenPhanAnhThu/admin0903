@@ -10,9 +10,13 @@
                 <table class="table table-bordered">
                     <thead>
                       <tr>
-                        <th>Tên khách hàng</th>
-                        <th>Lastname</th>
-                        <th>Email</th>
+                        <th>Tên khách hàng - SĐT</th>
+                        <th>Ngày đặt</th>
+                        <th>Sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Tổng tiền thanh toán</th>
+                        <th>Note</th>
+                        <th>Đã giao</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -20,16 +24,10 @@
                         <td>John</td>
                         <td>Doe</td>
                         <td>john@example.com</td>
-                      </tr>
-                      <tr>
-                        <td>Mary</td>
-                        <td>Moe</td>
-                        <td>mary@example.com</td>
-                      </tr>
-                      <tr>
-                        <td>July</td>
-                        <td>Dooley</td>
-                        <td>july@example.com</td>
+                        <td>John</td>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
                       </tr>
                     </tbody>
                   </table>
