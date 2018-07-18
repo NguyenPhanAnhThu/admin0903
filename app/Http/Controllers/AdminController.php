@@ -69,4 +69,16 @@ class AdminController extends Controller
                 ->where('status',1)->get();
         return view('pages.home',compact('bills'));
     }
+
+    function getUpdateBill($id){
+        $bill = Bills::where('id',$id)->first();
+        if($bill){
+            $bill->status = 2; //0:KH chua xac nhan| 1:KH da xac nhan | 2:admin da giao hang | -1:DH bi huy
+            $bill->save();
+            return redirect()->route('home')->with('success','Cập nhật thành công');
+        }
+        else{
+            return redirect()->route('home')->with('error',"Không tìm thấy đơn hàng HD000$id");
+        }
+    }
 }
