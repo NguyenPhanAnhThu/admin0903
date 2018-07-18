@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="admin-master/img/favicon.html">
 
     <title>@yield('title')</title>
+    <base href="{{asset('')}}">
 
     <!-- Bootstrap core CSS -->
     <link href="admin-master/css/bootstrap.min.css" rel="stylesheet">
@@ -295,11 +296,13 @@
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class=" fa fa-envelope"></i>
-                          <span>Mail</span>
+                          <span>Quản lý đơn hàng</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="inbox.html">Inbox</a></li>
-                          <li><a  href="inbox_details.html">Inbox Details</a></li>
+                        <li><a  href="{{route('bills',0)}}">Đơn hàng chưa xác nhận</a></li>
+                            <li><a  href="{{route('bills',1)}}">Đơn hàng đã xác nhận</a></li>
+                            <li><a  href="{{route('bills',2)}}">Đơn hàng đã hoàn tất</a></li>
+                            <li><a  href="{{route('bills',3)}}">Đơn hàng bị huỷ</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">

@@ -34,6 +34,9 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdminLogin'],function(){
     //admin/update-bill-2
     Route::get('update-bill-{id}',"AdminController@getUpdateBill");
 
+    //admin/bills-0
+    Route::get('bills-{status?}',"AdminController@getBillsByStatus")->name('bills');
+
 
     // admin/add-product
     Route::get('add-product',"AdminController@getAddProduct")->name('addProduct');

@@ -4,7 +4,18 @@
 <div class="panel panel-body">
     <section class="content">
         <div class="panel panel-default">
-            <div class="panel-heading"><b>Quản lý đơn hàng mới (Đơn hàng đã xác nhận) </b>
+            <div class="panel-heading">
+                <b>
+                    @if($status==0)
+                        Danh sách đơn hàng chưa xác nhận
+                    @elseif($status==1)
+                        Quản lý đơn hàng mới (Đơn hàng đã xác nhận) 
+                    @elseif($status==2)
+                        Danh sách đơn hàng đã hoàn tất 
+                    @else 
+                        Danh sách đơn hàng bị huỷ
+                    @endif
+                </b>
             </div>
             <div class="panel-body">
                 @if(Session::has('success'))
@@ -27,7 +38,9 @@
                         <th>Tổng tiền(chưa giảm)</th>
                         <th>Tổng tiền thanh toán</th>
                         <th>Note</th>
+                        @if($status==1)
                         <th>Tuỳ chọn</th>
+                        @endif
                       </tr>
                     </thead>
                     <tbody>
@@ -48,14 +61,17 @@
                         <td>{{number_format($b->total)}}</td>
                         <td>{{number_format($b->promt_price)}}</td>
                         <td>{{$b->note}}</td>
+                        @if($status==1)
                         <td>
                             <button class="btn btn-primary btn-sm updateBill" data-toggle="modal" data-target="#myModal" data-id="{{$b->id}}">Đã giao</button>
                             <button class="btn btn-default btn-sm">Huỷ</button>
                         </td>
+                        @endif
                       </tr>
                       @endforeach
                     </tbody>
                   </table>
+                {{$bills->links()}}
             </div>
         </div>
     </section>
