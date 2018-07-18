@@ -40,4 +40,10 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdminLogin'],function(){
 
     // admin/add-product
     Route::get('add-product',"AdminController@getAddProduct")->name('addProduct');
+
+
+    // Route::get('test',function(){
+    //     $a = \App\Categories::with('cate')->where('id_parent',null)->get();
+    //     dd($a);
+    // });
 });

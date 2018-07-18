@@ -19,6 +19,9 @@ class Categories extends Model
         //id : PK page_url : other key
     }
 
+    function levelTwo(){
+        return $this->hasMany('App\Categories','id_parent','id');
+    }
 
     
     

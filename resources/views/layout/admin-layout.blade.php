@@ -305,6 +305,32 @@
                             <li><a  href="{{route('bills',3)}}">Đơn hàng bị huỷ</a></li>
                       </ul>
                   </li>
+                  <!--multi level menu start-->
+                  <li class="sub-menu">
+                        <a href="javascript:;" >
+                            <i class="fa fa-sitemap"></i>
+                            <span>Sản phẩm theo loại</span>
+                        </a>
+                        <ul class="sub">
+                            
+                            @foreach($menu as $m)
+                                @if(count($m->levelTwo)==0)
+                                <li><a  href="javascript:;">{{$m->name}}</a></li>
+                                @else
+                                <li class="sub-menu">
+                                    <a  href="boxed_page.html">{{$m->name}}</a>
+                                    <ul class="sub">
+                                        @foreach($m->levelTwo as $l2)
+                                        <li><a  href="javascript:;">{{$l2->name}}</a></li>
+                                        @endforeach
+
+                                    </ul>
+                                </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </li>
+                    <!--multi level menu end-->
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class=" fa fa-bar-chart-o"></i>
@@ -334,30 +360,7 @@
                       </a>
                   </li>
 
-                  <!--multi level menu start-->
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-sitemap"></i>
-                          <span>Multi level Menu</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="javascript:;">Menu Item 1</a></li>
-                          <li class="sub-menu">
-                              <a  href="boxed_page.html">Menu Item 2</a>
-                              <ul class="sub">
-                                  <li><a  href="javascript:;">Menu Item 2.1</a></li>
-                                  <li class="sub-menu">
-                                      <a  href="javascript:;">Menu Item 3</a>
-                                      <ul class="sub">
-                                          <li><a  href="javascript:;">Menu Item 3.1</a></li>
-                                          <li><a  href="javascript:;">Menu Item 3.2</a></li>
-                                      </ul>
-                                  </li>
-                              </ul>
-                          </li>
-                      </ul>
-                  </li>
-                  <!--multi level menu end-->
+                  
 
               </ul>
               <!-- sidebar menu end-->
