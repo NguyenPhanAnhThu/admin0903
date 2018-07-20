@@ -6,7 +6,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <b>
-                    Danh sách sản phẩm thuộc loại ....
+                    Danh sách sản phẩm thuộc loại <i>{{$nameType}}</i>
                 </b>
             </div>
             <div class="panel-body">
@@ -41,7 +41,7 @@
                             {{$product->name}}
                         </td>
                         <td>
-                            <img src="" alt="">
+                            <img height="100px" src="admin-master/products/{{$product->image}}" alt="">
                         </td>
                         <td>
                             {{number_format($product->price)}}
@@ -49,13 +49,13 @@
                             {{number_format($product->promotion_price)}}
                         </td>
                         <td>
-                            <input type="checkbox" @if($product->status==1) checked @endif>
+                            <input type="checkbox" disabled @if($product->status==1) checked @endif>
                         </td>
                         <td>
-                            <input type="checkbox" @if($product->new==1) checked @endif>
+                            <input type="checkbox" disabled @if($product->new==1) checked  @endif>
                         </td>
                         <td>
-                            <input type="checkbox" @if($product->deleted==1) checked @endif>
+                            <input type="checkbox" disabled @if($product->deleted==1) checked   @endif>
                         </td>
                         <td>
                             <button class="btn btn-primary btn-sm updateBill" data-toggle="modal" data-target="#myModal" data-id="{{$product->id}}">Xoá</button>

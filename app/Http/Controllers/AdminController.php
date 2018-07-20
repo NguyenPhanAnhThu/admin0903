@@ -8,6 +8,7 @@ use Hash;
 use Auth;
 use App\Bills;
 use App\Products;
+use App\Categories;
 
 class AdminController extends Controller
 {
@@ -91,7 +92,8 @@ class AdminController extends Controller
     }
 
     function getListProduct($idtype){
+        $nameType = Categories::where('id',$idtype)->value('name');
         $products = Products::where('id_type',$idtype)->paginate(10);
-        return view('pages.list-product',compact('products'));
+        return view('pages.list-product',compact('products','nameType'));
     }
 }
