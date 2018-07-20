@@ -37,7 +37,7 @@
                      @foreach($products as $product)
                       <tr>
                       <td>SP000{{$product->id}}</td>
-                        <td>
+                        <td id="name-{{$product->id}}">
                             {{$product->name}}
                         </td>
                         <td>
@@ -58,8 +58,8 @@
                             <input type="checkbox" disabled @if($product->deleted==1) checked   @endif>
                         </td>
                         <td>
-                            <button class="btn btn-primary btn-sm updateBill" data-toggle="modal" data-target="#myModal" data-id="{{$product->id}}">Xoá</button>
-                            <button class="btn btn-default btn-sm">Sửa</button>
+                            <button class="btn btn-primary btn-sm updateProduct" data-toggle="modal" data-target="#myModal" data-id="{{$product->id}}">Xoá</button>
+                            <a href="{{route('updateProduct',$product->id)}}"><button class="btn btn-default btn-sm">Sửa</button></a>
                         </td>
                       </tr>
                       @endforeach
@@ -77,11 +77,11 @@
         <!-- Modal content-->
         <div class="modal-content">
         <div class="modal-body">
-            <p>Bạn có chắc chắn chuyển <b id="idBill">DH000</b> sang đã giao?</p>
+            <p>Bạn có chắc chắn xoá sản phẩm <b id="nameProduct">...</b> ?</p>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-primary">
-                <a href="admin/update-bill" id="addIdBill">OK</a>
+                <a href="admin/delete-product" id="addIdProduct">OK</a>
             </button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         </div>
@@ -92,9 +92,11 @@
 <script src="admin-master/js/jquery.js"></script>
 <script>
     $(document).ready(function(){
-        $('.updateBill').click(function(){
-            var idBill = $(this).attr('data-id') //get 
-            $('#addIdBill').attr('href',"admin/update-bill-"+idBill) //set
+        $('.updateProduct').click(function(){
+            var idProduct = $(this).attr('data-id') //get 
+            var nameProduct = $('#name-'+idProduct).text()
+            $('#nameProduct').html(nameProduct)
+            $('#addIdProduct').attr('href',"admin/delete-product-"+idProduct) //set
         })
     })
 </script>

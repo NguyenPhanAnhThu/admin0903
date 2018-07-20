@@ -43,4 +43,10 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdminLogin'],function(){
 
     Route::get('list-product-{idtype}',"AdminController@getListProduct")->name('listProduct');
 
+    Route::get('delete-product-{id}',"AdminController@getDeleteProduct")->name('deleteProduct');
+
+    Route::get('update-product-{id}',"AdminController@getUpdateProduct")->name('updateProduct');
+
+    Route::post('update-product-{id}',"AdminController@postUpdateProduct")->name('updateProduct');
+
 });

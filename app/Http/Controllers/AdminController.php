@@ -96,4 +96,22 @@ class AdminController extends Controller
         $products = Products::where('id_type',$idtype)->paginate(10);
         return view('pages.list-product',compact('products','nameType'));
     }
+    function getDeleteProduct($id){
+        $product = Products::findOrFail($id);
+        if($product){
+            // $product->delete();
+            $product->deleted = 1;
+            $product->save();
+            return redirect()->route('listProduct',$product->id_type)
+            ->with('success','Xoá thành công');
+        }
+        else{
+            return redirect()->back()
+            ->with('error','Không tìm thấy sản phẩm');
+        }
+    }
+
+    function getUpdateProduct($id){
+        echo $id;
+    }
 }
