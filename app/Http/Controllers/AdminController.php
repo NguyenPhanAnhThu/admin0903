@@ -112,6 +112,11 @@ class AdminController extends Controller
     }
 
     function getUpdateProduct($id){
-        echo $id;
+        $product = Products::where('id',$id)->first();
+        if($product){
+            return view('pages.edit-product',compact('product'));
+        }
+        return redirect()->back()->with('error','Không tìm thấy sản phẩm');
+        
     }
 }
