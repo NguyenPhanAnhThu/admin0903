@@ -24,7 +24,7 @@
                     <form  action="" method="POST">
                         <div class="form-group">
                           <label for="name">Tên sản phẩm:</label>
-                          <input type="text" class="form-control" id="name" name="name">
+                          <input type="text" class="form-control" id="name" name="name" value="{{$product->name}}">
                         </div>
                         <div class="form-group">
                             <label for="name">Chọn loại:</label>
@@ -34,23 +34,19 @@
                         </div>
                         <div class="form-group">
                           <label for="pwd">Đơn giá:</label>
-                          <input type="text" class="form-control" name="price" id="pwd">
+                        <input type="text" class="form-control" name="price" id="pwd" value="{{$product->price}}">
                         </div>
                         <div class="form-group">
                             <label for="pwd">Đơn giá khuyến mãi:</label>
-                            <input type="text" class="form-control" name="promotion_price" id="pwd">
+                            <input type="text" class="form-control" name="promotion_price" value="{{$product->promotion_price}}">
                         </div>
                         <div class="form-group">
                             <label for="name">Khuyến mãi kèm theo:</label>
-                            <select name="promotion" class="form-control">
-                                <option value="Phiếu mua hàng Samsung trị giá 250.000đ ">Phiếu mua hàng Samsung trị giá 250.000đ </option>
-                                <option value="Giảm ngay 1 triệu">Giảm ngay 1 triệu</option>
-                                <option value="Giảm 1 triệu cho Apple Watch khi mua kèm iPhone/iPad">Giảm 1 triệu cho Apple Watch khi mua kèm iPhone/iPad</option>
-                            </select>
+                            <textarea rows="5" class="form-control"  name="promotion">{{$product->promotion}}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="pwd">Thông tin chi tiết:</label>
-                            <textarea rows="5" class="form-control" name="detail" id="pwd"></textarea>
+                            <textarea rows="5" class="form-control" name="detail" id="pwd">{{$product->detail}}</textarea>
                         </div>
                         <div class="form-group">
                             <label>Hình sản phẩm:</label>
@@ -61,13 +57,13 @@
                             </div>
                         </div>
                         <div class="checkbox">
-                          <label><input type="checkbox" name="status"> Sản phẩm đặc biệt</label>
+                          <label><input type="checkbox" name="status" @if($product->status==1) checked @endif> Sản phẩm đặc biệt</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="new"> Sản phẩm mới</label>
+                            <label><input type="checkbox" name="new"  @if($product->new==1) checked @endif> Sản phẩm mới</label>
                           </div>
                           <div class="checkbox">
-                            <label><input type="checkbox" name="new"> Xoá sản phẩm</label>
+                            <label><input type="checkbox" name="new"  @if($product->deleted==1) checked @endif> Xoá sản phẩm</label>
                           </div>
                         <button typ
                         <button type="submit" class="btn btn-primary">Submit</button>
