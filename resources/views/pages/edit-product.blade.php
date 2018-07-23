@@ -37,7 +37,7 @@
                         </div>
                         <div class="form-group">
                             <label for="name">Chọn cấp con:</label>
-                            <select name="id_type" class="form-control">
+                            <select name="id_type" class="form-control" id="level-two">
                                 <option value="">---Chọn loại---</option>
                             </select>
                         </div>
@@ -97,6 +97,12 @@
                 },
                 success:function(res){
                     console.log(res)
+                    if($.trim(res)=='nolevel2'){
+                        $('#level-two').html('<select class="form-control" id="level-two"><option disabled>Không tồn tại cấp 2</option></select>')
+                    }
+                    else{
+                        $('#level-two').html(res)
+                    }
                 },
                 error:function(){
                     console.log('errrr!!')

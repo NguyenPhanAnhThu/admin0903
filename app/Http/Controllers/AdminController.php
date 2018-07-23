@@ -121,6 +121,12 @@ class AdminController extends Controller
     }
 
     function getLevelTwo(Request $req){
-        echo $req->id;
+        $levelTwo = Categories::where('id_parent',$req->id)->get();
+        if(empty($levelTwo->toArray())){
+            echo "nolevel2";
+        }
+        else{
+            return view('ajax.leveltwo',compact('levelTwo'));
+        }
     }
 }
