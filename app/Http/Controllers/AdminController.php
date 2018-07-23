@@ -113,10 +113,14 @@ class AdminController extends Controller
 
     function getUpdateProduct($id){
         $product = Products::where('id',$id)->first();
+        $levelOne = Categories::where('id_parent',NULL)->get();
         if($product){
-            return view('pages.edit-product',compact('product'));
+            return view('pages.edit-product',compact('product','levelOne'));
         }
         return redirect()->back()->with('error','Không tìm thấy sản phẩm');
-        
+    }
+
+    function getLevelTwo(Request $req){
+        echo $req->id;
     }
 }

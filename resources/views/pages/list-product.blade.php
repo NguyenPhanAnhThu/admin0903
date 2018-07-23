@@ -92,6 +92,7 @@
 <script src="admin-master/js/jquery.js"></script>
 <script>
     $(document).ready(function(){
+        // $('#myModal').modal('show')
         $('.updateProduct').click(function(){
             var idProduct = $(this).attr('data-id') //get 
             var nameProduct = $('#name-'+idProduct).text()

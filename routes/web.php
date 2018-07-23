@@ -49,4 +49,7 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdminLogin'],function(){
 
     Route::post('update-product-{id}',"AdminController@postUpdateProduct")->name('updateProduct');
 
+    //admin/select-level-two
+    Route::get('select-level-two',"AdminController@getLevelTwo")->name('getl2');
+
 });
