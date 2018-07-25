@@ -1,6 +1,8 @@
 @extends('layout.admin-layout')
 @section('title','Cập nhật thông tin sản phẩm '.$product->name)
 @section('content')
+
+<script src="ckeditor/ckeditor.js"></script>
 <div class="panel panel-body">
     <section class="content">
         <div class="panel panel-default">
@@ -54,11 +56,11 @@
                         </div>
                         <div class="form-group">
                             <label for="name">Khuyến mãi kèm theo:</label>
-                            <textarea rows="5" class="form-control"  name="promotion">{{$product->promotion}}</textarea>
+                            <textarea rows="5" class="form-control"  name="promotion" id="promotion">{{$product->promotion}}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="pwd">Thông tin chi tiết:</label>
-                            <textarea rows="5" class="form-control" name="detail" id="pwd">{{$product->detail}}</textarea>
+                            <textarea rows="5" class="form-control" name="detail" id="detail">{{$product->detail}}</textarea>
                         </div>
                         <div class="form-group">
                             <label>Hình sản phẩm:</label>
@@ -115,5 +117,11 @@
             })
         })
     })
+</script>
+
+<script src="ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('detail')
+    CKEDITOR.replace('promotion')
 </script>
 @endsection
