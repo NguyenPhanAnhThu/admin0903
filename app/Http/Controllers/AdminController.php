@@ -9,6 +9,7 @@ use Auth;
 use App\Bills;
 use App\Products;
 use App\Categories;
+use App\PageUrl;
 
 class AdminController extends Controller
 {
@@ -134,6 +135,35 @@ class AdminController extends Controller
     }
 
     function postUpdateProduct(Request $req){
-        dd($req->input())
-;    }
+        //dd($req->input());
+        $product = Products::findOrFail($req->id);
+        if($product){
+            $product->id_type = $req->id_type;
+            $product->name = $req->name;
+            $product->detail = $req->detail;
+            $product->price = $req->price;
+            $product->promotion_price = $req->promotion_price;
+            $product->promotion = $req->promotion;
+            $product->status = isset($req->status) && $req->status=="on" ? 1 : 0;
+            $product->new = isset($req->new) && $req->new=="on" ? 1 : 0;
+            $product->deleted = isset($req->deleted) && $req->deleted=="on" ? 1 : 0;
+            $product->update_at = date('Y-m-d',time());
+            if($req->hasFile('image')){
+                $image = $req->file('image');
+                $name = time().$image->getClientOriginalName();
+                $image->move('admin-master/products',$name);
+
+                $product->image = $name;
+            } 
+            $product->save(); 
+            
+            $url = PageUrl::findOrFail($product->id_url);
+            $url->url = '';
+            $url->save();
+            return redirect()->route('listProduct',$product->id_type)->with('success','Update thành công');
+        }
+        else{
+            return redirect()->back()->with('error','Không tìm thấy sản phẩm');
+        }
+    }
 }

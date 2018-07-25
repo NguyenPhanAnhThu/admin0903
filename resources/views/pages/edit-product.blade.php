@@ -21,7 +21,7 @@
                 </div>
                 @endif
                 <div class="row">
-                    <form  action="{{route('updateProduct',$product->id)}}" method="POST">
+                    <form  action="{{route('updateProduct',$product->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                           <label for="name">Tên sản phẩm:</label>
@@ -75,7 +75,8 @@
                             <label><input type="checkbox" name="new"  @if($product->new==1) checked @endif> Sản phẩm mới</label>
                           </div>
                           <div class="checkbox">
-                            <label><input type="checkbox" name="new"  @if($product->deleted==1) checked @endif> Xoá sản phẩm</label>
+                            <label>
+                                <input type="checkbox" name="deleted"  @if($product->deleted==1) checked @endif> Xoá sản phẩm</label>
                           </div>
                         <button typ
                         <button type="submit" class="btn btn-primary">Submit</button>
