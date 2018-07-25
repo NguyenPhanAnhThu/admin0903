@@ -10,6 +10,7 @@ use App\Bills;
 use App\Products;
 use App\Categories;
 use App\PageUrl;
+use App\Helpers\Helpers;
 
 class AdminController extends Controller
 {
@@ -158,7 +159,8 @@ class AdminController extends Controller
             $product->save(); 
             
             $url = PageUrl::findOrFail($product->id_url);
-            $url->url = '';
+            $helper = new Helpers;
+            $url->url = $helper->changeTitle($product->name);
             $url->save();
             return redirect()->route('listProduct',$product->id_type)->with('success','Update thành công');
         }

@@ -1,5 +1,6 @@
 <?php
 namespace App\Helpers;
+
 class Helpers{
     function stripUnicode($str){
         if(!$str) return false;
@@ -37,6 +38,9 @@ class Helpers{
         $str = str_replace(")", '', $str);
         $str = str_replace("%", '', $str);
         $str = str_replace(",", '', $str);
+        $str = str_replace(".", '', $str);
+        $str = str_replace("$", '', $str);
+
         $str = $this->stripUnicode($str);
         $str = mb_convert_case($str, MB_CASE_LOWER,'utf-8');
         $str = str_replace(' ', '-', $str);
