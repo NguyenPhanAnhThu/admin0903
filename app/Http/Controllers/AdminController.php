@@ -167,5 +167,11 @@ class AdminController extends Controller
         else{
             return redirect()->back()->with('error','Không tìm thấy sản phẩm');
         }
+        
+    }
+
+    function getAddProduct(){
+        $levelOne = Categories::where('id_parent',NULL)->get();
+        return view('pages.add-product',compact('levelOne'));
     }
 }
