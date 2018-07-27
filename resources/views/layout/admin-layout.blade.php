@@ -295,7 +295,7 @@
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class=" fa fa-envelope"></i>
+                          <i class=" fa fa-arrow-alt-circle-right"></i>
                           <span>Quản lý đơn hàng</span>
                       </a>
                       <ul class="sub">
@@ -305,6 +305,13 @@
                             <li><a  href="{{route('bills',3)}}">Đơn hàng bị huỷ</a></li>
                       </ul>
                   </li>
+
+                  <li>
+                    <a href="{{route('addProduct')}}" >
+                        <i class="fa fa-angle-double-down"></i>
+                        <span>Thêm sản phẩm mới</span>
+                    </a>
+                </li>
                   <!--multi level menu start-->
                   <li class="sub-menu">
                         <a href="javascript:;" >
@@ -352,12 +359,6 @@
                           <li><a  href="product_list.html">List View</a></li>
                           <li><a  href="product_details.html">Details View</a></li>
                       </ul>
-                  </li>
-                  <li>
-                      <a href="google_maps.html" >
-                          <i class="fa fa-map-marker"></i>
-                          <span>Google Maps </span>
-                      </a>
                   </li>
 
                   

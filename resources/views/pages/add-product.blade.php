@@ -39,7 +39,10 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            
+                            <label for="name">Chọn cấp con:</label>
+                            <select name="id_type" class="form-control" id="level-two">
+                                <option value="">---Chọn loại---</option>
+                            </select>
                         </div>
                         <div class="form-group">
                           <label for="pwd">Đơn giá:</label>
@@ -86,7 +89,6 @@
         $('#level-one').change(function(){
             var idType = $(this).val()
             $.ajax({
-                //url:"admin/select-level-two",
                 url:"{{route('getl2')}}",
                 type: 'GET',
                 data:{
