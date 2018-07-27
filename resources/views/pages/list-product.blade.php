@@ -59,7 +59,9 @@
                         </td>
                         <td>
                             <button class="btn btn-primary btn-sm updateProduct" data-toggle="modal" data-target="#myModal" data-id="{{$product->id}}">Xoá</button>
+                            @if(Auth::user()->role=='admin')
                             <a href="{{route('updateProduct',$product->id)}}"><button class="btn btn-default btn-sm">Sửa</button></a>
+                            @endif
                         </td>
                       </tr>
                       @endforeach

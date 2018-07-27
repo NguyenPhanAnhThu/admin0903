@@ -45,9 +45,11 @@ Route::group(['prefix'=>'admin','middleware'=>'checkAdminLogin'],function(){
 
     Route::get('delete-product-{id}',"AdminController@getDeleteProduct")->name('deleteProduct');
 
-    Route::get('update-product-{id}',"AdminController@getUpdateProduct")->name('updateProduct');
+    Route::group(['middleware'=>'isadmin'],function(){
+        Route::get('update-product-{id}',"AdminController@getUpdateProduct")->name('updateProduct');
 
-    Route::post('update-product-{id}',"AdminController@postUpdateProduct")->name('updateProduct');
+        Route::post('update-product-{id}',"AdminController@postUpdateProduct")->name('updateProduct');
+    });
 
     Route::get('add-product',"AdminController@getAddProduct")->name('addProduct');
     Route::post('add-product',"AdminController@postAddProduct")->name('addProduct');
