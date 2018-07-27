@@ -27,7 +27,7 @@
                         @csrf
                         <div class="form-group">
                           <label for="name">Tên sản phẩm:</label>
-                          <input type="text" class="form-control" id="name" name="name" >
+                        <input type="text" class="form-control" id="name" name="name" value="{{old('name')}}">
                         </div>
                         <div class="form-group">
                             <label for="name">Chọn cấp cha:</label>

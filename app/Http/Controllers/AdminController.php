@@ -174,4 +174,38 @@ class AdminController extends Controller
         $levelOne = Categories::where('id_parent',NULL)->get();
         return view('pages.add-product',compact('levelOne'));
     }
+
+    function postAddProduct(Request $req){
+        $url = new PageUrl;
+        $helper = new Helpers;
+        $url->url = $helper->changeTitle($req->name);
+        $url->save();
+
+        $product = new Products;
+        $product->id_url = $url->id;
+        $product->id_type = $req->id_type;
+        $product->name = $req->name;
+        $product->detail = $req->detail;
+        $product->price = $req->price;
+        $product->promotion_price = $req->promotion_price;
+        $product->promotion = $req->promotion;
+        $product->status = isset($req->status) && $req->status=="on" ? 1 : 0;
+        $product->new = isset($req->new) && $req->new=="on" ? 1 : 0;
+        $product->deleted = isset($req->deleted) && $req->deleted=="on" ? 1 : 0;
+        $product->update_at = date('Y-m-d',time());
+        if($req->hasFile('image')){
+            $image = $req->file('image');
+            $name = time().$image->getClientOriginalName();
+            $image->move('admin-master/products',$name);
+            $product->image = $name;
+        } 
+        else{
+            
+            $url->delete();
+            return redirect()->back()->with('error','Vui lòng chọn ảnh')->withInput($req->all());
+
+        }
+        $product->save(); 
+        return redirect()->route('listProduct',$product->id_type)->with('success','Thêm mới thành công');
+    }
 }
